@@ -11,16 +11,16 @@ class Voitures{
         this.msgTableaudeBord = msgTableaudeBord
     }
         
-        repeindre() {
+        repeindre(NouvelleCouleur) {
            
-           let color = "red"
-           if (color){
+           if (this.color === NouvelleCouleur){
                console.log("Merci pour ce rafrichissement!!");
            }else{
                console.log("Merci pour cette nouvelle couleur!")
            }
-           return this
+          
        }
+       /*
         MettreEssence() {
            let quantity = capaciteReservoir - niveauDessance
            if(niveauDessance<capaciteReservoir){
@@ -59,18 +59,24 @@ class Voitures{
         DonneeNeceessaire(){
 
             return ("numéro d'immatriculation : ",this.immatriculation, "couleur de la voiture: ",this.color, "le poid: ",this.poid, "puissance : ", this.puissance, "capacité de reservoir : ", this.capaciteReservoir, "nombre de places: ",this.nombreDePlace)
-        }
+        }*/
 
     }
 
 
+let Mavoiture = new Voitures ("12_slk_56", "red", 54,7,60, 5)
+NouvelleCouleur= "grey";
+console.log(Mavoiture);
+return repeindre();
 
-    
+
+    /*
 //function Myvoiture(immatriculation, color, poid, puissance, capaciteReservoir, nombreDePlace)
 class voiture extends Voitures{
     constructor(immatriculation, color, poid, puissance, capaciteReservoir, nombreDePlace){
         super(immatriculation, color, poid, puissance, capaciteReservoir, nombreDePlace)
     }
-   } 
+   } */
    
+
 
