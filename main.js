@@ -65,9 +65,9 @@ class Voitures{
 
 
 let Mavoiture = new Voitures ("12_slk_56", "red", 54,7,60, 5)
-NouvelleCouleur= "grey";
+
 console.log(Mavoiture);
-return repeindre();
+Mavoiture.repeindre("grey");
 
 
     /*
