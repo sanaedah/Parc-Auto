@@ -1,78 +1,78 @@
 class Voiture{
-    constructor(immatriculation, couleur, poid, puissance, capaciteReservoir, niveauDeCarburant, nombreDePlace, assure, msgTableaudeBord){
-        this.immatriculation = immatriculation
-        this.couleur = couleur
-        this.poid = poid
-        this.puissance = puissance
-        this.capaciteReservoir = capaciteReservoir
-        this.niveauDeCarburant = niveauDeCarburant
-        this.nombreDePlace = nombreDePlace
-        this.assure = assure
-        this.msgTableaudeBord = msgTableaudeBord   
+    constructor(registrationNumber, color, weight, powerFiscal, tankCapacity, fuelLevel, numberOfPlaces, insurrancee, msgDashboard){
+        this.registrationNumber = registrationNumber
+        this.color = color
+        this.weight = weight
+        this.powerFiscal = powerFiscal
+        this.tankCapacity = tankCapacity
+        this.fuelLevel = fuelLevel
+        this.numberOfPlaces = numberOfPlaces
+        this.insurrancee = insurrancee
+        this.msgDashboard = msgDashboard   
     }
-    livraison(value){
+    delivery(value){
         if(!value){
-            this.assure=value
-            this.niveauDeCarburant=5
-            this.msgTableaudeBord="vous n'êtes pas assurés "
-            console.log(this.msgTableaudeBord)
+            this.insurrancee = value
+            this.fuelLevel = 5
+            this.msgDashboard = "vous n'êtes pas assurés "
+            return this.msgDashboard;
         }
         else {
-            this.assure=value
-            this.msgTableaudeBord ="vous êtes assurés !"
-            console.log(this.msgTableaudeBord)
+            this.insurrancee = value
+            this.msgDashboard = "vous êtes assurés !"
+            return this.msgDashboard;
         }
     }
-    Pint(NouvelleCouleur) {   
-        if (this.couleur === NouvelleCouleur){
-            console.log("Merci pour ce rafrichissement!!");
+    pint(Nouvellecolor) {   
+        if (this.color === Nouvellecolor){
+            return "Merci pour ce rafrichissement!!";
         }else{
-            this.couleur = NouvelleCouleur;
-            console.log(`la nouvelle couleur est : ${NouvelleCouleur}, merci pour cette nouvelle couleur!`);
+            this.color = Nouvellecolor;
+            return `la nouvelle couleur est : ${Nouvellecolor}, merci pour cette nouvelle couleur!`;
         }
     } 
-    mettreCarburant( quantity) {
-        quantity = this.capaciteReservoir - this.niveauDeCarburant
-        if(this.niveauDeCarburant < this.capaciteReservoir){
-            console.log(`on peut rajouter  jusqu'à ${quantity} litres de Carburant`)
+    getFuel( quantity) {
+        quantity = this.tankCapacity - this.fuelLevel
+        if(this.fuelLevel < this.tankCapacity){
+            return `on peut rajouter  jusqu'à ${quantity} litres de Carburant`;
         }else{
-            console.log(`votre reservoir est plein ! `)
+            return `votre reservoir est plein ! `;
         }
     }
-    SeDeplacer(distance, vitesseMoyenne, consommation ) {
-        distance= prompt("entrer la distance: ");
-        console.log(distance);
-        vitesseMoyenne = prompt("entrer la vitesse moyenne : ");
-        console.log(vitesseMoyenne);
-        if(vitesseMoyenne<50 ){
-            consommation = distance * 0.1
+    toMove(distance, averageSpeed, consumption) {
+        if(averageSpeed<50 ){
+            consumption = distance * 0.1
+            return consumption;
         }
-        if(vitesseMoyenne < 90 && vitesseMoyenne > 50){
-            consommation= distance * 0.05
+        if(averageSpeed < 90 && averageSpeed > 50){
+            consumption = distance * 0.05
+            return consumption;
         }
-        if(vitesseMoyenne <130  && vitesseMoyenne > 90){
-            consommation= distance * 0.08
+        if(averageSpeed <130  && averageSpeed > 90){
+            consumption = distance * 0.08
+            return consumption;
         }
-        if(vitesseMoyenne > 130 ){
-            consommation= distance * 0.08
+        if(averageSpeed > 130 ){
+            consumption = distance * 0.08
+            return consumption;
         }
-        if(this.niveauDeCarburant >= consommation){
-            console.log(`vous allez consommer  ${consommation} litres pour faire ce trajet.`)
+        if(this.fuelLevel >= this.consumption){
+            return `vous allez consommer ${consumption} litres pour faire ce trajet.`;
         }else{
-            console.log(`il vous reste ${this.niveauDeCarburant} litres de carburant  et le trajet nécessite ${consommation} litres, vous ne pouvez pas effectuer ce trajet  vous n'avez pas assez de carburant`)
+            return `il vous reste ${this.fuelLevel} litres de carburant  et le trajet nécessite ${this.consumption} litres, vous ne pouvez pas effectuer ce trajet  vous n'avez pas assez de carburant`;
         }
     }
     toString(){
-        return `Le numéro d'immatriculation est : ${this.immatriculation} , la puissance est : ${this.puissance} et sa couleur est ${this.couleur}`
+        return `Le numéro d'immatriculation est : ${this.registrationNumber} , la puissance fiscale est : ${this.powerFiscal} et sa couleur est ${this.color}`;
     }
 }
 let Mavoiture = new Voiture("12 slk 56", "Rouge", 1500, 150, 60, 20, 5)
-//console.log(Mavoiture.toString());
-Mavoiture.livraison(false);
-Mavoiture.livraison;
-//Mavoiture.Pint("gris");
-Mavoiture.mettreCarburant();
-Mavoiture.SeDeplacer();
+/*console.log(Mavoiture.toString());
+Mavoiture.delivery(false);
+console.log(Mavoiture.delivery());
+Mavoiture.pint("gris");
+Mavoiture.getFuel();*/
+console.log(Mavoiture.toMove(60, 90));
 
 
    
