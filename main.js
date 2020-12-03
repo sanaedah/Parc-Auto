@@ -10,7 +10,7 @@ class Voiture{
         this.assure = assure
         this.msgTableaudeBord = msgTableaudeBord   
     }
-    livraison(value=Boolean){
+    livraison(value){
         if(!value){
             this.assure=value
             this.niveauDeCarburant=5
@@ -31,7 +31,8 @@ class Voiture{
             console.log(`la nouvelle couleur est : ${NouvelleCouleur}, merci pour cette nouvelle couleur!`);
         }
     } 
-    mettreCarburant( quantity = this.capaciteReservoir - this.niveauDeCarburant) {
+    mettreCarburant( quantity) {
+        quantity = this.capaciteReservoir - this.niveauDeCarburant
         if(this.niveauDeCarburant < this.capaciteReservoir){
             console.log(`on peut rajouter  jusqu'à ${quantity} litres de Carburant`)
         }else{
@@ -66,11 +67,11 @@ class Voiture{
     }
 }
 let Mavoiture = new Voiture("12 slk 56", "Rouge", 1500, 150, 60, 20, 5)
-console.log(Mavoiture.toString());
-Mavoiture.livraison(true);
+//console.log(Mavoiture.toString());
+Mavoiture.livraison(false);
 Mavoiture.livraison;
+//Mavoiture.Pint("gris");
 Mavoiture.mettreCarburant();
-Mavoiture.Pint("gris");
 Mavoiture.SeDeplacer();
 
 
